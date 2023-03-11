@@ -1,5 +1,5 @@
 # WSL Cheatsheet
-
+For whole list of commands check [documentation](https://learn.microsoft.com/en-us/windows/wsl/basic-commands).
 ## Full list of commands:
 ```powershell
 wsl --help
