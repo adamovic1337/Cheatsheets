@@ -20,7 +20,7 @@ docker pull [options] <image name>[:tag]
 docker build [options] <path|url>
 ```
 - `--tag, -t`: Name and optionally a tag in the `name:tag` format
-
+- `--file, -f`: Name of the Dockerfile (Default is PATH/Dockerfile)
 
 ### Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
 ```powershell
@@ -140,4 +140,39 @@ docker version
 ### Show docker disk usage
 ```powershell
 docker system df
+```
+
+## Docker Compose
+### Create and start containers
+```powershell
+docker compose up [options] [service...]
+```
+- `--detach, -d`: Detached mode: Run containers in the background
+- `--build`: Build images before starting containers
+
+### List containers
+```powershell
+ docker compose ps [options]
+```
+- `--all, -a`: Show all stopped containers 
+- `--status`: Filter services by status. Values: [paused | restarting | removing | running | dead | created | exited]
+- `--services`: Display services 
+
+### Stop and remove containers, networks
+```powershell
+docker compose down [options]
+```
+- `--remove-orphans`: Remove containers for services not defined in the Compose file
+- `--rmi`: Remove images used by services. “local” remove only images that don’t have a custom tag (“local”|”all”)
+- `--timeout, -t`: Specify a shutdown timeout in seconds
+- `--volumes, -v`: Remove named volumes declared in the `volumes` section of the Compose file and anonymous volumes attached to containers
+
+### Starts existing containers for a service
+```powershell
+docker compose start
+```
+
+### Stop services
+```powershell
+docker compose stop
 ```
